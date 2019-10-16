@@ -1,0 +1,22 @@
+<div class='nav-container'>
+    <div class='nav-group'>
+        <div class='nav-item'>
+            <h1>Logo</h1>
+        </div>
+    </div>
+    <div class='nav-group'>
+        <div class='nav-item'>
+            <%= link_to 'Home', '/' %>
+        </div>
+        <div class='nav-item'>
+            <%= link_to 'Auctions', '/auctions' %>
+        </div>
+        <div class='nav-item'>
+            <% if user_signed_in? %>
+                <%= link_to 'Sign Out', session_path(current_user.id), method: :delete %>
+            <% else %>
+                <%= link_to 'Sign In', new_session_path %>
+            <% end %>
+        </div>
+    </div>
+</div>
