@@ -26,10 +26,7 @@ book_list = [
     ['book5', 'book5 description']
 ]
 
-book_list.each do |item_name, description|
-    Auction.create( item_name: item_name, description: description, user: super_user )
-    puts item_name
-end
+Bids.create( value: 50, user: super_user, auction: 1 )
 
 # User.create(
 #     name: 'testing',
