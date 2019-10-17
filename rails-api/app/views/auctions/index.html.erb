@@ -1,0 +1,16 @@
+<div class='column'>
+    <div class='page-header'>
+      <h1>Auctions</h1>
+    </div>
+    <div class='row'>
+        <%= link_to 'New Auction', new_auction_path(@auction) %>
+    </div>
+    <div class='row'>
+      <% @auctions.each do |auction| %>
+        <div class="column">
+          <h2><%= link_to auction.name, auction_path(auction) %></h2>
+          <small><%= auction.description %></small>
+        </div>
+      <% end %>
+    </div>
+</div>

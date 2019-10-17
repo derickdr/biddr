@@ -1,0 +1,26 @@
+<div class='row'>
+    <h1 class='item-name'>Item</h1>
+</div>
+<div class='row'>
+    <div class='column'>
+        <div class='row'>
+            <h2 class='item-description'>my item</h2>
+        </div>
+        <div class='row'>
+            <h2 class='section-header'>Previous Bids</h2>
+        </div>
+        <div class='row'>
+            <% for_each(auction.bid) %>
+                <div class='row'>
+                    <h3 class='value'>40</h3>
+                    <small><%= Auction.bid.created_at %></small>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='row'>
+            <%= Auction.description %>
+        </div>
+    </div>
+</div>

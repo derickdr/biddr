@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     get 'bids/new'
     get 'users/new'
+    get 'auctions/index'
     get 'auctions/new'
     get 'home/index'
     get 'sign_up', to: 'users#new'
