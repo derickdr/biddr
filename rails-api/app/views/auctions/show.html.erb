@@ -1,26 +1,33 @@
 <div class='row'>
-    <h1 class='item-name'>Item</h1>
+    <h1 class='item-name'><%= @auction.item_name %></h1>
 </div>
 <div class='row'>
     <div class='column'>
-        <div class='row'>
-            <h2 class='item-description'>my item</h2>
-        </div>
-        <div class='row'>
-            <h2 class='section-header'>Previous Bids</h2>
-        </div>
-        <div class='row'>
-            <% for_each(auction.bid) %>
-                <div class='row'>
-                    <h3 class='value'>40</h3>
-                    <small><%= Auction.bid.created_at %></small>
-                </div>
-            <% end %>
-        </div>
+        <h2 class='item-description'><%= @auction.description %></h2>
     </div>
     <div class='column'>
+        <p><%= @auction.reserve_price %></p>
+        <p><%= @auction.created_at %></p>
+        <p><%= @auction.highest_bid %></p>
+    </div>
+</div>
+<div class='row'>
+    <%= form_for (Bid.new) do |f| %>
         <div class='row'>
-            <%= Auction.description %>
+            <%= f.label :value %>
+            <%= f.number_field :value %>
         </div>
+        <div class='row'>  
+            <%= f.submit 'Place Bid' %>
+        </div>
+    <% end %>
+</div>
+<div class='row'>
+    <div class='column'>
+        <h2 class='section-header'>Previous Bids</h2>
+        <p>bid1</p>
+        <p>bid2</p>
+        <p>bid3</p>
+        <p>bid4</p>
     </div>
 </div>

@@ -5,11 +5,20 @@
     <div class='row'>
         <%= link_to 'New Auction', new_auction_path(@auction) %>
     </div>
-    <div class='row'>
+    <div class='column'>
       <% @auctions.each do |auction| %>
-        <div class="column">
-          <h2><%= link_to auction.name, auction_path(auction) %></h2>
-          <small><%= auction.description %></small>
+        <div class="row">
+            <div class='column'>
+                <div class='row'>
+                    <h2><%= link_to auction.item_name, auction_path(auction) %></h2>
+                </div>
+                <div class='row'>
+                    <small><%= auction.description %></small>
+                </div>
+                <div class='row'>
+                    <small><%= auction.created_at %></small>
+                </div>
+            </div>
         </div>
       <% end %>
     </div>

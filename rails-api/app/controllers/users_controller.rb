@@ -9,37 +9,18 @@ class UsersController < ApplicationController
   
       if @user.save
         # session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to auctions_index_path
       else
         render :new
       end
+      puts user_params
   
-    end
-  
-    def show
-      @user = User.find(params[:id])
-    end
-  
-    def password
-      @user = User.find(params[:id])
-    end
-  
-    def destroy
-      flash[:notice] = "User deleted"
-      @user.destroy
-      redirect_to root_path
-    end
-    
-    def auctions
-      @user = User.find(params[:id])
-      @auctions = @user.auctions
-      @bids = @user.bids
     end
   
     private
   
     def user_params
-      params.require(:user).permit(:username, :password)
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
   
   end

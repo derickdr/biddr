@@ -1,20 +1,22 @@
-<%= form_for Auction.new do |f| %>
-
-    <div>
-        <%= f.label :item_name %>
-        <%= f.text_field :item_name %>
+<div class='column'>
+    <div class='row'>
+        <h1 class='page-header'>Create an Auction</h1>
     </div>
-
-    <div>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
+    <div class='row'>
+        <%= form_for (Auction.new) do |f| %>
+            <div>
+                <%= f.label :item_name %>
+                <%= f.text_field :item_name %>
+            </div>
+            <div>
+                <%= f.label :description %>
+                <%= f.text_field :description %>
+            </div>
+            <div>
+                <%= f.label :reserve_price %>
+                <%= f.number_field :reserve_price %>
+            </div>
+            <%= f.submit 'Create Listing' %>
+        <% end %>
     </div>
-
-    <div>
-        <%= f.label :reserve_price %>
-        <%= f.number_field :reserve_price %>
-    </div>
-
-    <%= f.submit %>
-
-<% end %>
+</div>

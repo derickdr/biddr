@@ -16,11 +16,21 @@ User.delete_all
 Auction.delete_all
 Bid.delete_all
 
-Auction.create(
-    item_name:  'book',
-    description: 'a book lul',
-    reserve_price: 80
-)
+super_user = User.create( name: 'super', password: 'test')
+
+book_list = [
+    ['book1', 'book1 description'],
+    ['book2', 'book2 description'],
+    ['book3', 'book3 description'],
+    ['book4', 'book4 description'],
+    ['book5', 'book5 description']
+]
+
+book_list.each do |item_name, description|
+    Auction.create( item_name: item_name, description: description, user: super_user )
+    puts item_name
+end
+
 # User.create(
 #     name: 'testing',
 #     password: test
